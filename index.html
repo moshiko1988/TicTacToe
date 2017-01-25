@@ -1,81 +1,130 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags unless you know what you are doing -->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>!! Tic Tac Toe !!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags unless you know what you are doing -->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <h1>Tic Tac Toe</h1>
-      <nav>
-<button type="button" class="btn btn-default navbar-btn">Sign up</button>
-<button type="button" class="btn btn-default navbar-btn">Sign in</button>
-</nav>
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-<!-- remove after -->
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
 
-<form id="sign-up">
-      <fieldset>
-        <legend>Sign up!</legend>
-        <label>
-          Email
-          <input type="text" name="credentials[email]">
-        </label>
-        <label>
-          Password
-          <input type="password" name="credentials[password]">
-        </label>
-        <label>
-          Password Confirmation
-          <input type="password" name="credentials[password_confirmation]">
-        </label>
-        <input type="submit" name="submit" value="Sign up!">
-      </fieldset>
-    </form>
-    <form id="sign-in">
-      <fieldset>
-        <legend>Sign in!</legend>
-        <label>
-          Email
-          <input type="text" name="credentials[email]">
-        </label>
-        <label>
-          Password
-          <input type="password" name="credentials[password]">
-        </label>
-        <input type="submit" name="submit" value="Sign in!">
-      </fieldset>
-    </form>
-    <form id="change-password">
+
+<body class="container-fluid">
+  <h1>Tic Tac Toe</h1>
+
+  <form id="sign-out">
     <fieldset>
-      <legend>Change Password!</legend>
-      <label>
-        Current Password
-        <input type="password" name="passwords[old]">
-      </label>
-      <label>
-        New Password
-        <input type="password" name="passwords[new]">
-      </label>
 
-      <input type="submit" name="submit" value="Change Password!">
+      <button type="submit" name="submit" class="btn btn-danger" >sign out</button>
     </fieldset>
   </form>
-  <form id="sign-out">
-<fieldset>
-  <legend>Sign Out!</legend>
-  <input type="submit" name="submit" value="Sign Out!">
-</fieldset>
-</form>
+
+  <nav class="navbar navbar-default navbar-inverse" role="navigation">
+    <div class="container-fluid">
+
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Sign up</b> </a>
+          <ul id="sign-up1" class="dropdown-menu">
+            <li>
+              <div class="row">
+                <div class="col-md-12">
 
 
+                  <form id="sign-up">
+                    <fieldset>
+                      <legend>Sign up!</legend>
+                      <label>
+                          Email
+                          <input type="text" name="credentials[email]">
+                        </label>
+                      <label>
+                          Password
+                          <input type="password" name="credentials[password]">
+                        </label>
+                      <label>
+                          Password Confirmation
+                          <input type="password" name="credentials[password_confirmation]">
+                        </label>
+                      <input type="submit" name="submit" value="Sign up!">
+                    </fieldset>
+                  </form>
+
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Sign in</b> </a>
+          <ul id="sign-in1" class="dropdown-menu">
+            <li>
+              <div class="row">
+                <div class="col-md-12">
+
+
+                  <form id="sign-in">
+                    <fieldset>
+                      <legend>Sign in!</legend>
+                      <label>
+                          Email
+                          <input type="text" name="credentials[email]">
+                        </label>
+                      <label>
+                          Password
+                          <input type="password" name="credentials[password]">
+                        </label>
+                      <input type="submit" name="submit" value="Sign in!">
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Change Password</b> </a>
+          <ul id="change-password1" class="dropdown-menu">
+            <li>
+              <div class="row">
+                <div class="col-md-12">
+
+
+                  <form id="change-password">
+                    <fieldset>
+                      <legend>Change Password!</legend>
+                      <label>
+                        Current Password
+                        <input type="password" name="passwords[old]">
+                      </label>
+                      <label>
+                        New Password
+                        <input type="password" name="passwords[new]">
+                      </label>
+
+                      <input type="submit" name="submit" value="Change Password!">
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+
+
+      </ul>
+
+    </div>
+
+  </nav>
 
   <div class="container">
     <div class="row">
@@ -94,5 +143,6 @@
       <div class="col-xs-4 side9">9</div>
     </div>
   </div>
-    </body>
+</body>
+
 </html>

@@ -4,11 +4,24 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 body {
   background-color: black;
 }
+.btn-danger{
+  position: relative;
+  bottom: 40px;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
 
 h1 {
   text-align: center;
   font-weight: bold;
-  color:#eeb24a ;
+  color: #eeb24a;
 }
 
 .col-xs-4 {
