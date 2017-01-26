@@ -8,7 +8,11 @@ body {
   position: relative;
   bottom: 40px;
 }
-
+.container{
+  background: pink;
+  font-size: 100px;
+  text-align: center;
+}
 .navbar .navbar-nav {
   display: inline-block;
   float: none;
