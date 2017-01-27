@@ -2,10 +2,7 @@
 
 const board = ['', '', '', '', '', '', '', '', ''];
 
-
 let currentPlayer = 'X';
-// let player1 = 'X';
-// let player2 = 'O';
 let newGame = $('#reset');
 
 
@@ -15,24 +12,20 @@ const resetGameBoard = function() {
     $('.box').text('');
     $('.win').text('');
     currentPlayer = 'X';
-
-
   }
   boxes.on('click', function(event) {
     if ($(event.target).text() === '') {
       $(event.target).text(currentPlayer);
-      // $(this).addClass(player1);
-
-      // changeTurn();
     }
     turns(event.target.id);
     console.log(board);
-
   });
 };
+
+
+
 newGame.on('click', function() {
   resetGameBoard();
-
 });
 
 const checkWins = function() {
@@ -46,7 +39,10 @@ const checkWins = function() {
     board[1] === "X" && board[4] === "X" && board[7] === "X" ||
     board[2] === "X" && board[5] === "X" && board[8] === "X"
   ) {
+
+
     $('.win').text("X won!");
+
     console.log('X won');
     endGame();
 
@@ -68,38 +64,24 @@ const checkWins = function() {
     console.log('DRAW');
     endGame();
   }
+
 };
 
-
-
-// let count = 0;
 let turns = function(index) {
   if (board[index] === '') {
     board[index] = currentPlayer;
     checkWins();
     if (currentPlayer === "X") {
       currentPlayer = "O";
-      // checkWins();
     } else {
       currentPlayer = "X";
-      // checkWins();
     }
   } else {
     console.log("pick another place");
+    $('.win').text("pick another place");
   }
 };
 
-
-// let changeTurn = function() {
-//   if(currentPlayer === 'X'){
-//     currentPlayer = 'O';
-//   }else {
-//     currentPlayer = 'X';
-//   }
-// };
-
-
-// let $dude =$('#dude');
 let endGame = function() {
   $('.box').off('click');
 };
@@ -110,9 +92,7 @@ let boxes = $('.box');
 boxes.on('click', function(event) {
   if ($(event.target).text() === '') {
     $(event.target).text(currentPlayer);
-    // $(this).addClass(player1);
 
-    // changeTurn();
   }
   turns(event.target.id);
   console.log(board);
@@ -120,24 +100,6 @@ boxes.on('click', function(event) {
 });
 
 
-// $('#').on('click', function(){
-//   if($('#').text()===''){
-//     $('#').text(player1 || player2);
-//   }
-// });
-
-
-
-// $('#side').on('click', function(){
-//   const $cell = $('#' + this.id);
-//     const indx = parseInt($cell.attr('id').slice(1));
-//       $('#${indx}').html('X');
-// })
-
-// const gameShow =
-//   $('#side1').on('click', function(){
-//     alert('1');
-//   });
 
 
 
