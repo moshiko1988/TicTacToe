@@ -28,7 +28,7 @@
 
 
 
-
+  <h2 class="win"></h2>
 
   <nav class="navbar navbar-inverse " role="navigation">
     <div class="container-fluid">
@@ -57,7 +57,7 @@
                           Password Confirmation
                           <input type="password" name="credentials[password_confirmation]">
                         </label>
-                      <input type="submit" name="submit" value="Sign up!" button="color-change">
+                      <input id="startGame"type="submit" name="submit" value="Sign up!" button="color-change">
                     </fieldset>
                   </form>
 
@@ -132,23 +132,34 @@
   </nav>
 
   <div id="reset" class="newgb"><button type="button" class="btn btn-success resetG">New Game</button></div>
-    <h2 class="win"></h2>
+<div id="getGame" class="newgb"><button type="button" class="btn btn-success resetG">get games</button></div>
+
+
   <div class="container" id='dude'>
     <div class="row">
-      <div class="col-xs-4 side1 box" id="0"></div>
-      <div class="col-xs-4 side2 box" id="1"></div>
-      <div class="col-xs-4 side3 box" id="2"></div>
+      <div class="col-xs-4 side1 cg box" id="0"></div>
+      <div class="col-xs-4 side2 cg box" id="1"></div>
+      <div class="col-xs-4 side3 cg box" id="2"></div>
     </div>
     <div class="row">
-      <div class="col-xs-4 side4 box" id="3"></div>
-      <div class="col-xs-4 side5 box" id="4"></div>
-      <div class="col-xs-4 side6 box" id="5"></div>
+      <div class="col-xs-4 side4 cg box" id="3"></div>
+      <div class="col-xs-4 side5 cg box" id="4"></div>
+      <div class="col-xs-4 side6 cg box" id="5"></div>
     </div>
     <div class="row">
-      <div class="col-xs-4 side7 box" id="6"></div>
-      <div class="col-xs-4 side8 box" id="7"></div>
-      <div class="col-xs-4 side9 box" id="8"></div>
+      <div class="col-xs-4 side7 cg box" id="6"></div>
+      <div class="col-xs-4 side8 cg box" id="7"></div>
+      <div class="col-xs-4 side9 cg box" id="8"></div>
     </div>
+  </div>
+  <form>
+  <input name="game[cell][index]" type="text" value="0">
+  <input name="game[cell][value]" type="text" value="x">
+  <input name="game[over]" type="text" value="false">
+</form>
+  <div class="playerText"></div>
+  <div class="options">
+    <div class="showTurn"></div>
   </div>
   <footer><p> © Moshe Srur GA WDI first project</p> </footer>
 

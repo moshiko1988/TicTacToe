@@ -1,32 +1,18 @@
 'use strict';
+const api = require('./auth/api');
+const ui = require('./auth/ui');
+const store = require('./store');
 
 const board = ['', '', '', '', '', '', '', '', ''];
 
 let currentPlayer = 'X';
 let newGame = $('#reset');
 
-
-const resetGameBoard = function() {
-  for (let i = 0; i < board.length; i++) {
-    board[i] = '';
-    $('.box').text('');
-    $('.win').text('');
-    currentPlayer = 'X';
-  }
-  boxes.on('click', function(event) {
-    if ($(event.target).text() === '') {
-      $(event.target).text(currentPlayer);
-    }
-    turns(event.target.id);
-    console.log(board);
-  });
-};
+function showText() {
+  $('.showTurn').text('Its ' + currentPlayer + ' turn');
+}
 
 
-
-newGame.on('click', function() {
-  resetGameBoard();
-});
 
 const checkWins = function() {
   if (
@@ -44,7 +30,7 @@ const checkWins = function() {
     $('.win').text("X won!");
 
     console.log('X won');
-    endGame();
+    return true;
 
   } else if (
     board[0] === "O" && board[1] === "O" && board[2] === "O" ||
@@ -58,19 +44,25 @@ const checkWins = function() {
   ) {
     $('.win').text("O won!");
     console.log('O won');
-    endGame();
+    return true;
+
   } else if (board.includes('') === false) {
     $('.win').text("DRAW");
     console.log('DRAW');
-    endGame();
+    return true;
   }
 
 };
 
+let boxes = $('.box');
+
 let turns = function(index) {
   if (board[index] === '') {
     board[index] = currentPlayer;
-    checkWins();
+    // checkWins();
+    if (checkWins() === true) {
+      boxes.off('click');
+    }
     if (currentPlayer === "X") {
       currentPlayer = "O";
     } else {
@@ -80,34 +72,65 @@ let turns = function(index) {
     console.log("pick another place");
     $('.win').text("pick another place");
   }
+  $('.showTurn').text('Its ' + currentPlayer + ' turn');
 };
+// var gameOver = false;
 
-let endGame = function() {
-  $('.box').off('click');
-};
+// let endGame = function() {
+//   $('.box').off('click');
+// gameOver = true;
+// };
 
 
-let boxes = $('.box');
+
 
 boxes.on('click', function(event) {
   if ($(event.target).text() === '') {
     $(event.target).text(currentPlayer);
-
+    console.log(board);
   }
+  api.patchGame(store.game.id, event.target.id, currentPlayer, checkWins())
+    .then(ui.success)
+    .catch(ui.failure);
   turns(event.target.id);
-  console.log(board);
 
+});
+
+const resetGameBoard = function() {
+  for (let i = 0; i < board.length; i++) {
+    board[i] = '';
+    $('.box').text('');
+    $('.win').text('');
+    currentPlayer = 'X';
+    $('.showTurn').text('Turn : ' + currentPlayer);
+  }
+  boxes.on('click', function(event) {
+    if ($(event.target).text() === '') {
+      $(event.target).text(currentPlayer);
+      turns(event.target.id);
+      console.log(board);
+    }
+
+  });
+};
+
+
+
+newGame.on('click', function() {
+  resetGameBoard();
 });
 
 
 
 
+// var gameOver boolen
+
 
 module.exports = {
+  currentPlayer,
   checkWins,
   board,
   resetGameBoard,
   turns,
-  endGame,
-
+  showText
 };

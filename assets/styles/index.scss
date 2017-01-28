@@ -3,14 +3,22 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
 @import url('https://fonts.googleapis.com/css?family=Codystar');
 
-
+html{
+zoom: 85%;
+}
 
 body {
   background-color: black;
 }
 .btn-danger{
 float: right;
-
+color: white;
+}
+.options{
+text-align: center;
+	margin:20px auto;
+  font-size: 25px;
+  color: white;
 }
 
 .container{
@@ -19,7 +27,7 @@ float: right;
   text-align: center;
 }
 .box{
-  color: pink;
+  color: #edca8e;
 }
 .navbar .navbar-nav {
   display: inline-block;
@@ -62,7 +70,9 @@ h2 {
 nav {
   text-align: center;
 }
-
+.box:hover{
+  background-color: #1b1711;
+}
 .side1 {
   border-top-style: none;
   border-left-style: none;
