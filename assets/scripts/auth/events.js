@@ -14,7 +14,7 @@ const onSignUp = function (event) {
 
   api.signUp(data)
     .then(ui.signUpSuccess)
-    .catch(ui.failure)
+    // .catch(ui.failure)
 ;
 };
 const onSignIn = function (event) {
@@ -27,8 +27,8 @@ const onSignIn = function (event) {
       store.user = response.user;
       return store.user;
     })
-    .then(ui.signInSuccess)
-    .catch(ui.failure);
+    .then(ui.signInSuccess);
+    // .catch(ui.failure);
 
 };
 const onChangePassword = function (event) {
@@ -50,7 +50,7 @@ const onSignOut = function (event) {
       return store;
     })
     .then(ui.signOutSuccess)
-    .catch(ui.failure)
+    // .catch(ui.failure)
     ;
 };
 
@@ -61,7 +61,7 @@ const onGetGame = function (event) {
   api.game()
 
     .then(ui.getGameSuccess)
-    .catch(ui.failure)
+    // .catch(ui.failure)
     ;
 };
 

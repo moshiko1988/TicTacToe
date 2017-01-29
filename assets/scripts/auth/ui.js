@@ -1,16 +1,11 @@
 'use strict';
 //
-const success = (data) => {
-  if (data) { console.log(data); }
-};
-
-const failure = (error) => {
-  console.error(error);
-};
+// const success = (data) => {
+//   if (data) { console.log(data); }
+// };
 //
-// module.exports = {
-//   failure,
-//   success,
+// const failure = (error) => {
+//   console.error(error);
 // };
 
 const signUpSuccess =() =>{
@@ -28,7 +23,7 @@ const signInSuccess = () => {
   // $('#change-password').show();
   $('#sign-out').show();
   $('#reset').show();
-  $('.win').show();
+  // $('.win').show();
 
 };
 const signOutSuccess = () => {
@@ -44,13 +39,14 @@ const signOutSuccess = () => {
   $('.win').hide();
   $('.signinhide').show();
   $('#sign-up-btb').show();
+  $('h2').hide();
+
 
 };
 const createGameSuccess = () => {
   $('#wrapper').show();
-  // $('box:first').hide(500).delay(300).show(800);
   $('.history').hide();
-
+  $('.win').show();
 };
 const getGameSuccess = (data) => {
   $('.history').show();
@@ -63,7 +59,7 @@ module.exports = {
   signOutSuccess,
   createGameSuccess,
   getGameSuccess,
-  success,
-  failure,
+  // success,
+  // failure,
   signUpSuccess
 };

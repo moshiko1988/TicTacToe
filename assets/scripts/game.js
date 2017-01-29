@@ -6,15 +6,11 @@ const store = require('./store');
 const board = ['', '', '', '', '', '', '', '', ''];
 
 let currentPlayer = 'X';
-// let newGame = $('#reset');
-
-// function showText(){
-//   $('.showTurn').text('Its ' + currentPlayer + ' turn');
-// }
 
 const blinkMe = function() {
   (function blink() {
-        $('.win').fadeOut(500).fadeIn(500, blink);
+
+        $('.win').fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
       })();
 };
 
@@ -32,11 +28,9 @@ const checkWins = function() {
 
 
     $('.win').text("X won!");
-    // (function blink() {
-    //   $('.win').fadeOut(500).fadeIn(500, blink);
-    // })();
+
     blinkMe();
-    console.log('X won');
+    // console.log('X won');
     return true;
 
   } else if (
@@ -51,13 +45,13 @@ const checkWins = function() {
   ) {
     $('.win').text("O won!");
     blinkMe();
-    console.log('O won');
+    // console.log('O won');
     return true;
 
   } else if (board.includes('') === false) {
     $('.win').text("DRAW");
     blinkMe();
-    console.log('DRAW');
+    // console.log('DRAW');
     return true;
   } return false;
 
@@ -66,7 +60,6 @@ const checkWins = function() {
 let boxes = $('.box');
 
 let turns = function() {
-    // checkWins();
     if (checkWins() === true) {
       boxes.off('click');
     }
@@ -75,28 +68,10 @@ let turns = function() {
     } else {
       currentPlayer = "X";
     }
-    //  $('.showTurn').text('Its ' + currentPlayer + ' turn');
+
 };
 
 
-
-// boxes.on('click', function(event) {
-//   if ($(event.target).text() === '') {
-//     $(event.target).text(currentPlayer);
-//     board[parseInt(event.target.id)] = currentPlayer;
-//     console.log(board);
-//   }else {
-//     console.log("pick another place");
-//     $('.win').text("pick another place");
-//   }
-//
-//   api.patchGame(store.game.id, event.target.id, currentPlayer, checkWins())
-//   .then(ui.success)
-//   .catch(ui.failure);
-//   turns();
-//
-//
-// });
 
 const resetGameBoard = function() {
   for (let i = 0; i < board.length; i++) {
@@ -104,24 +79,17 @@ const resetGameBoard = function() {
     $('.box').text('');
     $('.win').text('');
     currentPlayer = 'X';
-    // $('.showTurn').text('Turn : ' + currentPlayer);
   }
   boxes.on('click', function(event) {
     if ($(event.target).text() === '') {
       $(event.target).text(currentPlayer);
       board[(event.target.id)] = currentPlayer;
-      console.log(board);
-      api.patchGame(store.game.id, event.target.id, currentPlayer, checkWins())
-      .then(ui.success)
-      .catch(ui.failure);
+      // console.log(board);
+      api.patchGame(store.game.id, event.target.id, currentPlayer, checkWins());
+      // .then(ui.success)
+      // .catch(ui.failure);
       turns();
-    }else {
-      console.log("pick another place");
-      $('.win').text("pick another place");
     }
-
-
-
 
   });
 };
@@ -136,7 +104,7 @@ const onCreateGame = function(event){
         store.game = response.game;
       })
       .then(ui.createGameSuccess)
-      .catch(ui.failure)
+      // .catch(ui.failure)
       ;
 };
 
