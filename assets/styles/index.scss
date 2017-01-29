@@ -2,6 +2,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
 @import url('https://fonts.googleapis.com/css?family=Codystar');
+@import url('https://fonts.googleapis.com/css?family=Fascinate+Inline|Hanalei|Hanalei+Fill');
 
 html{
 zoom: 85%;
@@ -25,6 +26,7 @@ text-align: center;
   background: rgba(#000000, 0.76);
   font-size: 100px;
   text-align: center;
+  font-family: 'Fascinate Inline', cursive;
 }
 .box{
   color: #edca8e;
@@ -60,6 +62,12 @@ h2 {
   font-size: 50px;
   padding: 10px;
 
+}
+h4{
+  text-align: center;
+  color: #eeb24a;
+font-family: 'Codystar', cursive;
+  font-size: 30px;
 }
 
 .col-xs-4 {

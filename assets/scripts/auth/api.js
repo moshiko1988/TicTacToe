@@ -37,7 +37,7 @@ const signOut = function () {
   });
 };
 
-//--------- shit i dont undertand
+
 
 const game = function () {
   return $.ajax({

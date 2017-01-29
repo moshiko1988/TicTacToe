@@ -13,9 +13,9 @@ const onSignUp = function (event) {
   let data = getFormFields(event.target);
 
   api.signUp(data)
-    .then(ui.success)
-    .catch(ui.failure);
-
+    // .then(ui.success)
+    // .catch(ui.failure);
+;
 };
 const onSignIn = function (event) {
     event.preventDefault();
@@ -27,7 +27,7 @@ const onSignIn = function (event) {
       store.user = response.user;
       return store.user;
     })
-    .then(ui.success)
+    .then(ui.signInSuccess)
     .catch(ui.failure);
 
 };
@@ -37,8 +37,8 @@ const onChangePassword = function (event) {
   let data = getFormFields(event.target);
 
   api.changePassword(data)
-    .then(ui.success)
-    .catch(ui.failure)
+    // .then(ui.success)
+    // .catch(ui.failure)
     ;
 };
 const onSignOut = function (event) {
@@ -49,18 +49,18 @@ const onSignOut = function (event) {
       delete store.user;
       return store;
     })
-    .then(ui.success)
+    .then(ui.signOutSuccess)
     .catch(ui.failure)
     ;
 };
 
-// shit i dont undertand
+
 const onGetGame = function (event) {
   event.preventDefault();
 
   api.game()
 
-    .then(ui.success)
+    .then(ui.getGameSuccess)
     .catch(ui.failure)
     ;
 };
@@ -72,17 +72,9 @@ const onGetGame = function (event) {
 //   .catch(ui.failure);
 // };
 
-const onCreateGame = function (event) {
-  event.preventDefault();
-let gameData = getFormFields(event.target);
-  api.createGame(gameData)
-    .then((response) => {
-      store.game = response.game;
-    })
-    .then(ui.success)
-    .catch(ui.failure)
-    ;
-};
+// const onCreateGame = function (event) {
+//   event.preventDefault();
+
 // const gameUpdate = function (event) {
 //   event.preventDefault();
 //   api.createGame()
@@ -101,12 +93,20 @@ let gameData = getFormFields(event.target);
 
 
 const addHandlers = () => {
+  $('#sign-up').show();
+  $('#sign-in').show();
+  $('#dude').hide();
+  $('#getGame').hide();
+  $('#game-log').hide();
+  $('#sign-out').hide();
+  $('#reset').hide();
+  // $('#hidePass').hide();
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
   $('#getGame').on('click', onGetGame);
-  $('#reset').on('click', onCreateGame);
+  $('#reset').on('click', game.onCreateGame);
   // $('.box').on('click', onPatchGame);
   // $('.cg').on('click', gameUpdate2);
 

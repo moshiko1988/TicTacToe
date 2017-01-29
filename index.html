@@ -29,12 +29,12 @@
 
 
   <h2 class="win"></h2>
-
+<h4 class="history"></h4>
   <nav class="navbar navbar-inverse " role="navigation">
     <div class="container-fluid">
 
       <ul class="nav navbar-nav">
-        <li class="dropdown">
+        <li id="sign-up-btb" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Sign up</b> </a>
           <ul id="sign-up1" class="dropdown-menu">
             <li>
@@ -100,7 +100,7 @@
           <ul id="change-password1" class="dropdown-menu">
             <li>
               <div class="row">
-                <div class="col-md-12">
+                <div id="hidePass" class="col-md-12">
 
 
                   <form id="change-password">
@@ -131,8 +131,12 @@
 
   </nav>
 
-  <div id="reset" class="newgb"><button type="button" class="btn btn-success resetG">New Game</button></div>
-<div id="getGame" class="newgb"><button type="button" class="btn btn-success resetG">get games</button></div>
+      <div id="reset" class="newgb">
+        <button type="button" class="btn btn-success resetG">New Game</button>
+      </div>
+      <div id="getGame" class="newgb">
+        <button type="button" class="btn btn-success resetG">get games</button>
+      </div>
 
 
   <div class="container" id='dude'>
@@ -152,16 +156,12 @@
       <div class="col-xs-4 side9 cg box" id="8"></div>
     </div>
   </div>
-  <form>
-  <input name="game[cell][index]" type="text" value="0">
-  <input name="game[cell][value]" type="text" value="x">
-  <input name="game[over]" type="text" value="false">
-</form>
+
   <div class="playerText"></div>
   <div class="options">
     <div class="showTurn"></div>
   </div>
-  <footer><p> © Moshe Srur GA WDI first project</p> </footer>
+
 
 </body>
 

@@ -8,7 +8,7 @@ const board = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
 let newGame = $('#reset');
 
-function showText() {
+function showText(){
   $('.showTurn').text('Its ' + currentPlayer + ' turn');
 }
 
@@ -50,15 +50,13 @@ const checkWins = function() {
     $('.win').text("DRAW");
     console.log('DRAW');
     return true;
-  }
+  } return false;
 
 };
 
 let boxes = $('.box');
 
-let turns = function(index) {
-  if (board[index] === '') {
-    board[index] = currentPlayer;
+let turns = function() {
     // checkWins();
     if (checkWins() === true) {
       boxes.off('click');
@@ -67,34 +65,28 @@ let turns = function(index) {
       currentPlayer = "O";
     } else {
       currentPlayer = "X";
-    }
-  } else {
-    console.log("pick another place");
-    $('.win').text("pick another place");
-  }
-  $('.showTurn').text('Its ' + currentPlayer + ' turn');
+    } $('.showTurn').text('Its ' + currentPlayer + ' turn');
 };
-// var gameOver = false;
-
-// let endGame = function() {
-//   $('.box').off('click');
-// gameOver = true;
-// };
 
 
 
-
-boxes.on('click', function(event) {
-  if ($(event.target).text() === '') {
-    $(event.target).text(currentPlayer);
-    console.log(board);
-  }
-  api.patchGame(store.game.id, event.target.id, currentPlayer, checkWins())
-    .then(ui.success)
-    .catch(ui.failure);
-  turns(event.target.id);
-
-});
+// boxes.on('click', function(event) {
+//   if ($(event.target).text() === '') {
+//     $(event.target).text(currentPlayer);
+//     board[parseInt(event.target.id)] = currentPlayer;
+//     console.log(board);
+//   }else {
+//     console.log("pick another place");
+//     $('.win').text("pick another place");
+//   }
+//
+//   api.patchGame(store.game.id, event.target.id, currentPlayer, checkWins())
+//   .then(ui.success)
+//   .catch(ui.failure);
+//   turns();
+//
+//
+// });
 
 const resetGameBoard = function() {
   for (let i = 0; i < board.length; i++) {
@@ -107,18 +99,36 @@ const resetGameBoard = function() {
   boxes.on('click', function(event) {
     if ($(event.target).text() === '') {
       $(event.target).text(currentPlayer);
-      turns(event.target.id);
+      board[parseInt(event.target.id)] = currentPlayer;
       console.log(board);
+      api.patchGame(store.game.id, event.target.id, currentPlayer, checkWins())
+      .then(ui.success)
+      .catch(ui.failure);
+      turns();
+    }else {
+      console.log("pick another place");
+      $('.win').text("pick another place");
     }
+
+
+
 
   });
 };
 
 
 
-newGame.on('click', function() {
-  resetGameBoard();
-});
+const onCreateGame = function(event){
+  event.preventDefault();
+   resetGameBoard();
+       api.createGame()
+      .then((response) => {
+        store.game = response.game;
+      })
+      .then(ui.createGameSuccess)
+      .catch(ui.failure)
+      ;
+};
 
 
 
@@ -132,5 +142,6 @@ module.exports = {
   board,
   resetGameBoard,
   turns,
-  showText
+  showText,
+  onCreateGame
 };
