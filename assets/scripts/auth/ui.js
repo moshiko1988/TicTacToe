@@ -13,12 +13,17 @@ const failure = (error) => {
 //   success,
 // };
 
-
-const signInSuccess = () => {
+const signUpSuccess =() =>{
+  $('#sign-up1').dropdown('toggle');
   $('#sign-up').val('');
+};
+const signInSuccess = () => {
+  // $('#sign-in1').dropdown('toggle');
+
+  // $('#sign-up').val('');
   $('#sign-in').val('');
-  // $('#sign-up-btn').hide();
-  $('#sign-in').hide();
+  $('#sign-up-btb').hide();
+  $('.signinhide').hide();
   $('#getGame').show();
   // $('#change-password').show();
   $('#sign-out').show();
@@ -31,16 +36,19 @@ const signOutSuccess = () => {
   // $('#change-password').hide();
   $('#getGame').hide();
   $('#reset').hide();
-  $('#dude').hide();
+  $('#wrapper').hide();
   $('.history').hide().val('');
   $('#sign-in').show();
-  // $('#sign-up').show();
+  $('#sign-up').show();
   $('.showTurn').hide();
   $('.win').hide();
+  $('.signinhide').show();
+  $('#sign-up-btb').show();
 
 };
 const createGameSuccess = () => {
-  $('#dude').show();
+  $('#wrapper').show();
+  // $('box:first').hide(500).delay(300).show(800);
   $('.history').hide();
 
 };
@@ -56,5 +64,6 @@ module.exports = {
   createGameSuccess,
   getGameSuccess,
   success,
-  failure
+  failure,
+  signUpSuccess
 };

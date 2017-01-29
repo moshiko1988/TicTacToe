@@ -13,8 +13,8 @@ const onSignUp = function (event) {
   let data = getFormFields(event.target);
 
   api.signUp(data)
-    // .then(ui.success)
-    // .catch(ui.failure);
+    .then(ui.signUpSuccess)
+    .catch(ui.failure)
 ;
 };
 const onSignIn = function (event) {
@@ -95,16 +95,16 @@ const onGetGame = function (event) {
 const addHandlers = () => {
   $('#sign-up').show();
   $('#sign-in').show();
-  $('#dude').hide();
+  $('#wrapper').hide();
   $('#getGame').hide();
-  $('#game-log').hide();
+  // $('#game-log').hide();
   $('#sign-out').hide();
   $('#reset').hide();
   // $('#hidePass').hide();
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);
-  $('#sign-out').on('submit', onSignOut);
+  $('#sign-out').on('click', onSignOut);
   $('#getGame').on('click', onGetGame);
   $('#reset').on('click', game.onCreateGame);
   // $('.box').on('click', onPatchGame);

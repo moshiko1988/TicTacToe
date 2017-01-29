@@ -4,6 +4,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import url('https://fonts.googleapis.com/css?family=Codystar');
 @import url('https://fonts.googleapis.com/css?family=Fascinate+Inline|Hanalei|Hanalei+Fill');
 
+
 html{
 zoom: 85%;
 }
@@ -11,6 +12,15 @@ zoom: 85%;
 body {
   background-color: black;
 }
+// .newgb{
+//   text-align: center;
+//   margin: auto;
+//   position: relative;
+//   left: 40%;
+// }
+
+
+
 .btn-danger{
 float: right;
 color: white;
@@ -26,7 +36,11 @@ text-align: center;
   background: rgba(#000000, 0.76);
   font-size: 100px;
   text-align: center;
-  font-family: 'Fascinate Inline', cursive;
+  font-family: 'Codystar', cursive;
+  font-weight: 900;
+  text-shadow: 1px 1px 10px white;
+  margin: auto;
+
 }
 .box{
   color: #edca8e;
@@ -35,10 +49,10 @@ text-align: center;
   display: inline-block;
   float: none;
 }
-.newgb{
-  text-align: center;
-  position: relative;
-}
+// .newgb{
+//   text-align: center;
+//   position: relative;
+// }
 .navbar .navbar-collapse {
   text-align: center;
 }
@@ -58,9 +72,12 @@ font-family: 'Codystar', cursive;
 h2 {
   text-align: center;
   font-weight: bold;
-  color:white;
+  color:#eeb24a;
   font-size: 50px;
   padding: 10px;
+  font-family: 'Codystar', cursive;
+  // box-shadow: 0 0 20px white;
+  text-shadow: 6px 1px 10px white;
 
 }
 h4{
@@ -116,10 +133,7 @@ nav {
   border-bottom-style: none;
   border-right-style: none;
 }
-footer{
-  color: white;
-  font-size: 10px;
-}
+
 fieldset{
   background-color: black;
 }

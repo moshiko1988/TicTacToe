@@ -6,13 +6,17 @@ const store = require('./store');
 const board = ['', '', '', '', '', '', '', '', ''];
 
 let currentPlayer = 'X';
-let newGame = $('#reset');
+// let newGame = $('#reset');
 
-function showText(){
-  $('.showTurn').text('Its ' + currentPlayer + ' turn');
-}
+// function showText(){
+//   $('.showTurn').text('Its ' + currentPlayer + ' turn');
+// }
 
-
+const blinkMe = function() {
+  (function blink() {
+        $('.win').fadeOut(500).fadeIn(500, blink);
+      })();
+};
 
 const checkWins = function() {
   if (
@@ -28,7 +32,10 @@ const checkWins = function() {
 
 
     $('.win').text("X won!");
-
+    // (function blink() {
+    //   $('.win').fadeOut(500).fadeIn(500, blink);
+    // })();
+    blinkMe();
     console.log('X won');
     return true;
 
@@ -43,11 +50,13 @@ const checkWins = function() {
     board[2] === "O" && board[5] === "O" && board[8] === "O"
   ) {
     $('.win').text("O won!");
+    blinkMe();
     console.log('O won');
     return true;
 
   } else if (board.includes('') === false) {
     $('.win').text("DRAW");
+    blinkMe();
     console.log('DRAW');
     return true;
   } return false;
@@ -65,7 +74,8 @@ let turns = function() {
       currentPlayer = "O";
     } else {
       currentPlayer = "X";
-    } $('.showTurn').text('Its ' + currentPlayer + ' turn');
+    }
+    //  $('.showTurn').text('Its ' + currentPlayer + ' turn');
 };
 
 
@@ -94,12 +104,12 @@ const resetGameBoard = function() {
     $('.box').text('');
     $('.win').text('');
     currentPlayer = 'X';
-    $('.showTurn').text('Turn : ' + currentPlayer);
+    // $('.showTurn').text('Turn : ' + currentPlayer);
   }
   boxes.on('click', function(event) {
     if ($(event.target).text() === '') {
       $(event.target).text(currentPlayer);
-      board[parseInt(event.target.id)] = currentPlayer;
+      board[(event.target.id)] = currentPlayer;
       console.log(board);
       api.patchGame(store.game.id, event.target.id, currentPlayer, checkWins())
       .then(ui.success)
@@ -133,6 +143,7 @@ const onCreateGame = function(event){
 
 
 
+
 // var gameOver boolen
 
 
@@ -142,6 +153,6 @@ module.exports = {
   board,
   resetGameBoard,
   turns,
-  showText,
-  onCreateGame
+  // showText,
+  onCreateGame,
 };
