@@ -11,6 +11,7 @@
 const signUpSuccess =() =>{
   $('#sign-up1').dropdown('toggle');
   $('#sign-up').val('');
+
 };
 const signInSuccess = () => {
   // $('#sign-in1').dropdown('toggle');
@@ -24,6 +25,7 @@ const signInSuccess = () => {
   $('#sign-out').show();
   $('#reset').show();
   // $('.win').show();
+  $('.changebtn').show();
 
 };
 const signOutSuccess = () => {
@@ -36,10 +38,10 @@ const signOutSuccess = () => {
   $('#sign-in').show();
   $('#sign-up').show();
   $('.showTurn').hide();
-  $('.win').hide();
+  $('#logs').hide();
   $('.signinhide').show();
   $('#sign-up-btb').show();
-  $('h2').hide();
+  $('.changebtn').hide();
 
 
 };

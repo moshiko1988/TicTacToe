@@ -10,7 +10,7 @@ let currentPlayer = 'X';
 const blinkMe = function() {
   (function blink() {
 
-        $('.win').fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
+        $('.win').fadeOut(500).fadeIn(500);
       })();
 };
 

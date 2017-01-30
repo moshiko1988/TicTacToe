@@ -97,6 +97,7 @@ const addHandlers = () => {
   $('#sign-in').show();
   $('#wrapper').hide();
   $('#getGame').hide();
+  $('.changebtn').hide();
   // $('#game-log').hide();
   $('#sign-out').hide();
   $('#reset').hide();
