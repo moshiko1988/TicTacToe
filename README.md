@@ -1,6 +1,10 @@
-TicTacToe : 
+TicTacToe :
 
 https://moshiko1988.github.io/TicTacToe/
+
+Wireframe pic :
+http://imgur.com/1YJI8C2
+
 
 I used SPA to make the game smooth
 javascript - logic and functions of the game.
